@@ -1,4 +1,4 @@
-// La gurdo en una variable para hacer pruebas en la terminal del navegador
+// Save it in a variable for testing in the browser terminal
 
 const APP = new Vue({
     el: '#app',
@@ -26,26 +26,25 @@ const APP = new Vue({
 
         },
 
-        // Esta funcion añade la moneda a una lista de monedas cargadas para identificar
-        // Cual moneda se esta solicitando y si ya se ha cargado, no volver a hacer el request para
-        //solicitar la informacion
+        // This function adds the currency to a list of loaded currencies to identify
+        // Which currency is being requested and if it has already been loaded, do not make the request again for
+        // request the information, and if it is not in the list of loaded currencies, make the request
 
         addCoin(coin) {
-            //El unico proposito de este setTimeOut, es que se pueda ver el efecto de carga
-            //Para fines de muestra
+
+            // The only purpose of this setTimeOut, is that you can see the loading effect
+            // For sample purposes
+
             setTimeout(() => {
 
                 if (this.coinsLoded.find(element => element == coin) == undefined) {
 
-                    fetch
+                    // fetch
 
                     this.coinsLoded = [...this.coinsLoded, coin];
                 }
 
             }, 1000);
-
-
-
         },
     },
 
